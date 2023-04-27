@@ -1,0 +1,282 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #282d35;
+    color: whitesmoke;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    
+}
+
+
+///variables 
+$main-color :#00ccff;
+$sub-color: #087793;
+$bg-color:rgb(22, 21, 21);
+
+$marin:10px 0px 0px 0px;
+$bp-phone:37.5em; //600px
+$bp-phone2:25em; //400px
+$bp-phone3:18.75em; //300px
+
+//mixins
+@mixin border-top{
+    border-top-left-radius: 2rem;
+    border-top-right-radius: 2rem;
+}
+@mixin border-bottom{
+   border-bottom-left-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+}
+
+@mixin h2format{
+        font-size: 3.5rem;
+        margin: 0;
+        color: $main-color;
+        position: relative;
+        width: 100%;
+        margin-bottom: 5px;
+
+}
+@mixin pformat{
+    font-size: 2rem;
+    line-height:1.4;
+    margin: 0;
+    @media  only screen and (max-width:$bp-phone3) {
+                font-size: 2.5rem ; //1rem = 4px
+    }
+}
+
+//media query manager
+html{
+    font-size: 62.5%; // 1rem =10px
+    @media  only screen and (max-width:$bp-phone) {
+        font-size:50% ; //1rem = 8px
+    }
+    @media  only screen and (max-width:$bp-phone2) {
+        font-size:37.5% ; //1rem = 6px
+    }
+    @media  only screen and (max-width:$bp-phone3) {
+        font-size:25% ; //1rem = 4px
+    }
+}
+
+.container{
+    width: min-content;
+    height: min-content;
+    margin: 2rem auto;
+    background-color: $bg-color;
+    border-radius: 20px;
+    font-size: 62.5%; // 1rem =10px
+    width: 60rem;
+    @media  only screen and (max-width:$bp-phone) {
+        width: 50rem;
+    }
+    @media  only screen and (max-width:$bp-phone2) {
+      margin: 3.5rem;
+      width: 60rem;
+
+      // come    back and fix
+    }
+    
+}
+.Info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.Info__pic{
+    width:100%;
+    @include border-top
+}
+.info-section{
+    padding-left:1rem;
+    padding-right: 1rem;
+    width: 100%;
+    margin-bottom: 3rem;
+    
+   
+}
+.Info__sub{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5rem;
+    @media  only screen and (max-width:$bp-phone3) {
+        font-size:8rem ; //1rem = 4px
+    }
+
+}
+.info__name{
+    
+    margin: $marin;
+   
+    font-size: 3.5rem;
+    text-align: center;
+    @media  only screen and (max-width:$bp-phone2) {
+        font-size:5rem ; //1rem = 6px
+    }   
+    
+}
+.Info__title{
+   
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 600;
+    color: $main-color;
+    position: relative;
+  
+    margin-bottom: 1rem;
+    @media  only screen and (max-width:$bp-phone3) {
+        font-size:3rem ; //1rem = 4px
+    }
+}
+
+.Info__link:link,
+.Info__link:visited{
+    font-size: 2rem;
+    cursor: pointer;
+    text-decoration: none;
+    color: whitesmoke;
+    margin: $marin;
+    @media  only screen and (max-width:$bp-phone3) {
+        font-size:2.5rem ; //1rem = 4px
+    }
+}
+
+.Info__btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+   
+    max-width: 80%;
+    margin: 0 auto;
+
+   
+    &--link,
+    &--link:link,
+    &--link:visited
+    {
+        width: 80%;
+        text-decoration: none;
+    }
+    }
+
+    .btn{
+        padding: 1rem 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 7px;
+        width: 100%;
+        outline: none;
+        border: none;
+        height: 6rem;
+        @media  only screen and (max-width:$bp-phone2) {
+            height: 8rem; //1rem = 4px
+        }
+        &>span{
+            font-size: 2rem;
+            @media  only screen and (max-width:$bp-phone3) {
+                font-size: 2.5rem ; //1rem = 4px
+            }
+        }
+        
+        
+        &-icon{
+            width:2rem;
+            margin-right: 1rem;
+
+            @media  only screen and (max-width:$bp-phone2) {
+                width: 2.5rem ; //1rem = 4px
+            }
+            @media  only screen and (max-width:$bp-phone3) {
+                width:4rem ; //1rem = 4px
+            }
+            
+        }
+        
+        
+}
+    
+.Info__btn--mail{
+    background-color: hsla(0, 0%, 96%, 0.973);
+    color: #1e1f26;
+}
+.Info__btn--mail:hover{
+    background-color: white;
+}
+.Info__btn--linkdin{
+    background:$sub-color;
+    color: whitesmoke;
+    
+}
+.Info__btn--linkdin:hover{
+    background-color: $main-color;
+}
+
+.About{
+    padding: 2rem 4rem;
+
+    &>h2{
+        @include h2format;
+
+       
+    
+    }
+    &>p{
+        @include pformat;
+    }
+}
+.Interest{
+    padding: 2rem 4rem;
+    margin-bottom: 2rem;
+    & > h2{
+        @include h2format;
+    }
+    & > p{
+        @include pformat;
+    }
+}
+
+.Footer{
+    background-color: rgba(0, 0, 0, 0.826);
+    @include border-bottom;
+    height: 10rem;
+    display: flex;
+    justify-content: center;
+    
+}
+.Footer__icon--container{
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    list-style: none;
+   
+    padding: 0;
+    gap: 7rem   ;
+    
+     
+}
+.item>a>img{
+    width: 3rem;
+    @media  only screen and (max-width:$bp-phone3) {
+        width: 4rem ; //1rem = 4px
+    }
+   
+}
+.icon:hover{
+    filter: grayscale(200);
+    width: 4rem;
+     @media  only screen and (max-width:$bp-phone3) {
+        width: 5rem ; //1rem = 4px
+    }
+}
